@@ -10,6 +10,7 @@
     上述四项中选择最小的一个
 '''
 import time
+import numpy as np
 
 
 def reMC(coinValueList, change):
@@ -38,6 +39,8 @@ def reMC(coinValueList, change):
 '''
 
 
+# 这种方法叫memorization(记忆化/函数值缓存)
+
 def reMC2(coinValueList, change, knownResult):
     '''
     :param coinValueList: 货币
@@ -45,6 +48,7 @@ def reMC2(coinValueList, change, knownResult):
     :param knownResult: 已有的最优解,换change时的最小硬币是多少
     :return: 兑换次数
     '''
+    result = []
     minCoin = change
     if change in coinValueList:
         return 1
@@ -58,6 +62,33 @@ def reMC2(coinValueList, change, knownResult):
                 # 保存已有的最优解，
                 knownResult[change] = minCoin
         return minCoin
+
+
+def Fibonacci(n):
+    '''
+    用循环解
+    '''
+    first = 1
+    second = 1
+    print(first, second, end='\t')
+    for i in range(n - 2):
+        third = first + second
+        print(third, end=' ')
+        first = second
+        second = third
+
+
+def FibonacciRecurision(n):
+    '''
+    用递归解
+    1.递归的结束条件n=1时，直接返回本身就行了
+    2. 问题的规模逐渐变小
+    3.调用自身
+    '''
+    if n == 1 or n == 0:
+        return 1
+    else:
+        return FibonacciRecurision(n - 1) + FibonacciRecurision(n - 2)
 
 
 if __name__ == '__main__':
