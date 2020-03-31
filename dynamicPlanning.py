@@ -11,7 +11,8 @@
 从最简单情况开始达到所需要找零的循环，其每一步都依靠以前的最优解来得到本步骤的最优解，知道得到答案
 '''
 
-def dpMakeChange(coinValueList, change, minCoins):
+
+def dpMakeChange(coinValueList, change, minCoins, coinUsed):
     # 从1分开始到change逐个计算最少硬币
     for cents in range(1, change + 1):
         # 1.初始化一个最大值
@@ -20,10 +21,20 @@ def dpMakeChange(coinValueList, change, minCoins):
         for j in [c for c in coinValueList if c <= cents]:
             if minCoins[cents - j] + 1 < coinCount:
                 coinCount = minCoins[cents - j] + 1
+                newCoin = j
         # 3.得到当前最少硬币数，记录到表中
         minCoins[cents] = coinCount
+        coinUsed[cents] = newCoin
     # 返回最后一个结果
     return minCoins[change]
+
+
+def printCoin(coinsUsed, change):
+    coin = change
+    while coin > 0:
+        thisCoin = coinsUsed[coin]
+        print(thisCoin)
+        coin = coin - thisCoin
 
 
 if __name__ == '__main__':

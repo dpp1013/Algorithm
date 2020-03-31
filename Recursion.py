@@ -90,7 +90,6 @@ def FibonacciRecurision(n):
     else:
         return FibonacciRecurision(n - 1) + FibonacciRecurision(n - 2)
 
-
 if __name__ == '__main__':
     print(reMC([1, 5, 10, 25], 26))
     print(reMC2([1, 5, 10, 25], 26, [0] * 27))
