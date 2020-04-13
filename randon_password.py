@@ -53,11 +53,6 @@ def line():
         print(round(sum / count))
 
 
-def csvclear():
-    with open(r'C:\Users\Administrator\Desktop\data.csv', 'r', encoding='utf-8')as f:
-
-
-
 if __name__ == '__main__':
     s = '''双儿 洪七公 赵敏 赵敏 逍遥子 鳌拜 殷天正 金轮法王 乔峰 杨过 洪七公 郭靖 
            杨逍 鳌拜 殷天正 段誉 杨逍 慕容复 阿紫 慕容复 郭芙 乔峰 令狐冲 郭芙 
