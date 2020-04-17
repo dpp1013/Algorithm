@@ -9,8 +9,18 @@
 '''
 
 
-def slection(lists):
-    max = 0
+def selection(lists):
     for i in range(len(lists) - 1, 0, -1):
-        for j in range(0, i):
-            if max>
+        max = 0
+        for j in range(0, i+1):
+            if lists[j] > max:
+                max = lists[j]
+        index = lists.index(max)
+        swapt = lists[index]
+        lists[index] = lists[i]
+        lists[i] = swapt
+    return lists
+
+
+if __name__ == '__main__':
+    print(selection([3, 6, 8, 10, 13, 16]))
